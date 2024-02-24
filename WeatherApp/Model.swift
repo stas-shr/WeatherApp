@@ -5,4 +5,9 @@
 //  Created by Стас on 22.02.2024.
 //
 
-import Foundation
+import UIKit
+
+struct Model {
+    var image: UIImage
+    var title: String
+}

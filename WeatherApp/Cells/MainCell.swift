@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainCell: UITableViewCell {
-
+    
     var mainImageView = UIImageView()
     var mainTitleLabel = UILabel()
     
@@ -46,23 +47,44 @@ class MainCell: UITableViewCell {
         mainTitleLabel.text = model.title
     }
     
+}
+
+//MARK: - Constraints
+
+extension MainCell {
     func setupConstraints() {
         // картинка
-        mainImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            mainImageView.topAnchor.constraint(equalTo: topAnchor),
-            mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mainImageView.heightAnchor.constraint(equalToConstant: 140),
-            mainImageView.widthAnchor.constraint(equalToConstant: 140)
-        ])
+        mainImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(140)
+            make.width.equalTo(140)
+        }
         
         // текст
-        mainTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            mainTitleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 10),
-            mainTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mainTitleLabel.heightAnchor.constraint(equalToConstant: 50),
-            mainTitleLabel.widthAnchor.constraint(equalToConstant: 140)
-        ])
+        mainTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(mainImageView.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
+            make.width.equalTo(140)
+        }
+        
+//        // картинка
+//        mainImageView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            mainImageView.topAnchor.constraint(equalTo: topAnchor),
+//            mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            mainImageView.heightAnchor.constraint(equalToConstant: 140),
+//            mainImageView.widthAnchor.constraint(equalToConstant: 140)
+//        ])
+//
+//        // текст
+//        mainTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            mainTitleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 10),
+//            mainTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            mainTitleLabel.heightAnchor.constraint(equalToConstant: 50),
+//            mainTitleLabel.widthAnchor.constraint(equalToConstant: 140)
+//        ])
     }
 }
