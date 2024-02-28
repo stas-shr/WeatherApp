@@ -1,15 +1,14 @@
 //
-//  MainCell.swift
+//  SecondCell.swift
 //  WeatherApp
 //
 //  Created by Стас on 22.02.2024.
 //
 
 import UIKit
-import SnapKit
 
-class MainCell: UITableViewCell {
-    
+class SecondCell: UITableViewCell {
+
     var mainImageView = UIImageView()
     var mainTitleLabel = UILabel()
     
@@ -19,8 +18,7 @@ class MainCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(mainImageView)
         addSubview(mainTitleLabel)
-        self.backgroundColor = .red
-        
+        self.backgroundColor = .blue
         
         configureImageView()
         configureTitleLabel()
@@ -47,44 +45,24 @@ class MainCell: UITableViewCell {
         mainTitleLabel.text = model.title
     }
     
+    
 }
 
 //MARK: - Constraints
 
-extension MainCell {
+extension SecondCell {
     func setupConstraints() {
         // картинка
         mainImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(140)
-            make.width.equalTo(140)
         }
         
         // текст
         mainTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(mainImageView.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(50)
-            make.width.equalTo(140)
+            make.centerX.bottom.equalToSuperview()
         }
         
-//        // картинка
-//        mainImageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            mainImageView.topAnchor.constraint(equalTo: topAnchor),
-//            mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            mainImageView.heightAnchor.constraint(equalToConstant: 140),
-//            mainImageView.widthAnchor.constraint(equalToConstant: 140)
-//        ])
-//
-//        // текст
-//        mainTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            mainTitleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 10),
-//            mainTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            mainTitleLabel.heightAnchor.constraint(equalToConstant: 50),
-//            mainTitleLabel.widthAnchor.constraint(equalToConstant: 140)
-//        ])
     }
 }
