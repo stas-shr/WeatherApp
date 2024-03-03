@@ -46,9 +46,9 @@ class MainCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(mainImageView)
-        addSubview(mainTitleLabel)
-        addSubview(mainStackView)
+        contentView.addSubview(mainImageView)
+        contentView.addSubview(mainTitleLabel)
+        contentView.addSubview(mainStackView)
         mainStackView.addArrangedSubview(mainCollectionView)
         self.backgroundColor = .red
         setupConstraints()
@@ -94,4 +94,5 @@ class MainCell: UITableViewCell {
         }
     }
 }
+
 
